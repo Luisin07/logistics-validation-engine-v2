@@ -12,7 +12,8 @@ function App() {
     setResultado(null);
 
     try {
-      const res = await fetch(`http://localhost:3000/api/validate?cep=${cep}`);
+      const API = process.env.REACT_APP_API_URL || 'http://localhost:3000';
+      const res = await fetch(`${API}/api/validate?cep=${cep}`);
       const data = await res.json();
       setResultado(data);
     } catch (e) {
