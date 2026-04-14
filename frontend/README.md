@@ -5,7 +5,7 @@ Fullstack migration of the logistics validation engine to a modern architecture 
 ## Live Demo
 
 - **API:** https://logistics-validation-engine-v2-production.up.railway.app/api/validate?cep=02001000
-- **Frontend:** em breve
+- **Frontend:** https://logistics-validation-engine-v2.vercel.app
 
 ## About
 
