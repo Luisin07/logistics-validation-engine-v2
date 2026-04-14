@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Logistics Validation Engine v2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Fullstack migration of the logistics validation engine to a modern architecture using Node.js, Express, and React.
 
-## Available Scripts
+## Live Demo
 
-In the project directory, you can run:
+- **API:** https://logistics-validation-engine-v2-production.up.railway.app/api/validate?cep=02001000
+- **Frontend:** em breve
 
-### `npm start`
+## About
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project is a migration of the original PHP-based logistics validation engine to a modern fullstack architecture. The goal was to separate backend logic into a REST API and build a React frontend to consume it.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The system validates ZIP codes against delivery regions, checks operational constraints, lead time rules, and slot capacity to determine delivery eligibility.
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Backend:** Node.js, Express
+- **Frontend:** React
+- **Deploy:** Railway (API), Vercel (frontend)
 
-### `npm run build`
+## Architecture
+logistics-v2/
+├── backend/   → REST API (Node.js + Express)
+└── frontend/  → UI (React)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## API
+GET /api/validate?cep={cep}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Test cases:**
+- `02001000` → delivery available
+- `01005000` → blocked ZIP
+- `03001000` → blocked region
+- `99999999` → outside coverage area
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Why This Project
 
-### `npm run eject`
+Built from real experience with e-commerce logistics operations. The validation logic reflects actual delivery scheduling systems with region mapping, slot capacity control, and lead time enforcement.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Author
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Luis Otavio Santini Feitosa  
+[LinkedIn](https://www.linkedin.com/in/luis-santini) · [GitHub](https://github.com/Luisin07)
