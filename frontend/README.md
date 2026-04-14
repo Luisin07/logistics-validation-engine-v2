@@ -14,18 +14,17 @@ This project simulates a delivery eligibility system used in real e-commerce ope
 Built as a migration from a PHP monolith to a modern fullstack architecture with clear separation between frontend, backend, and data layers.
 
 ## Architecture
-logistics-v2/
-├── backend/
-│   ├── src/
-│   │   ├── routes/
-│   │   │   └── validate.js      → HTTP layer
-│   │   └── services/
-│   │       └── logisticsService.js  → Business logic
-│   ├── db.js                    → Database connection
-│   └── index.js                 → Server entry point
-└── frontend/
-└── src/
-└── App.js               → React UI
+
+The project is split into two independent services:
+
+**Backend** — Node.js + Express REST API deployed on Railway
+- `src/routes/validate.js` — HTTP layer, receives and validates input
+- `src/services/logisticsService.js` — business logic and database queries
+- `db.js` — PostgreSQL connection pool
+
+**Frontend** — React app deployed on Vercel
+- Consumes the REST API
+- Displays delivery availability, slots, and freight info
 
 ## Tech Stack
 
@@ -51,7 +50,7 @@ GET /api/validate?cep={cep}
 **Test cases:**
 - `02001000` → delivery available
 - `01005000` → blocked ZIP
-- `03001000` → blocked region  
+- `03001000` → blocked region
 - `99999999` → outside coverage area
 
 ## Database Schema
@@ -86,5 +85,5 @@ The business logic was preserved and the architecture was restructured into a RE
 
 ## Author
 
-Luis Otavio Santini Feitosa  
+Luis Otavio Santini Feitosa
 [LinkedIn](https://www.linkedin.com/in/luis-santini) · [GitHub](https://github.com/Luisin07)
